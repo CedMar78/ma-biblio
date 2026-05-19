@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ma Biblio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Ma Biblio</h1>
+    <p>Organise tes lectures : à lire, en cours et déjà lues.</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Ajouter un livre</h2>
+
+      <form id="book-form">
+        <input type="text" id="title" placeholder="Titre du livre" required />
+        <input type="text" id="author" placeholder="Auteur" required />
+        <input type="text" id="note" placeholder="Note personnelle (optionnel)" />
+        <input type="text" id="cover" placeholder="URL de la couverture" />
+
+        <select id="status">
+          <option value="to-read">À lire</option>
+          <option value="reading">En cours</option>
+          <option value="read">Lu</option>
+        </select>
+
+        <button type="submit">Ajouter</button>
+      </form>
+    </section>
+
+    <section class="books-section">
+      <div class="column">
+        <h2>À lire</h2>
+        <div id="to-read-list" class="book-list"></div>
+      </div>
+
+      <div class="column">
+        <h2>En cours</h2>
+        <div id="reading-list" class="book-list"></div>
+      </div>
+
+      <div class="column">
+        <h2>Lus</h2>
+        <div id="read-list" class="book-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
