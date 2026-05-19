@@ -8,6 +8,7 @@ const toReadList = document.getElementById("to-read-list");
 const readingList = document.getElementById("reading-list");
 const readList = document.getElementById("read-list");
 const coverInput = document.getElementById("cover");
+const searchInput = document.getElementById("search-input");
 
 let books = JSON.parse(localStorage.getItem("books")) || [];
 
@@ -39,7 +40,16 @@ function displayBooks() {
   readingList.innerHTML = "";
   readList.innerHTML = "";
 
-  books.forEach(function (book) {
+ const searchValue = searchInput.value.toLowerCase();
+
+books
+  .filter(function (book) {
+    return (
+      book.title.toLowerCase().includes(searchValue) ||
+      book.author.toLowerCase().includes(searchValue)
+    );
+  })
+  .forEach(function (book) {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
 
@@ -141,3 +151,6 @@ function editBook(id) {
 function saveBooks() {
   localStorage.setItem("books", JSON.stringify(books));
 }
+searchInput.addEventListener("input", function () {
+  displayBooks();
+});

@@ -41,6 +41,7 @@ form {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 
 input,
@@ -49,6 +50,7 @@ button {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 input,
@@ -114,8 +116,34 @@ button:hover {
 }
 
 @media (max-width: 900px) {
+  body {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  input,
+  select,
+  button {
+    width: 100%;
+  }
+
   .books-section {
     grid-template-columns: 1fr;
+  }
+
+  .column {
+    min-height: auto;
+  }
+
+  .book-cover {
+    height: 300px;
   }
 }
 .book-cover {
@@ -147,3 +175,16 @@ button:hover {
 .modify-btn:hover {
   background: dodgerblue;
 }
+
+.search-section {
+  margin-bottom: 20px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
