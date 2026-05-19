@@ -9,6 +9,9 @@ const readingList = document.getElementById("reading-list");
 const readList = document.getElementById("read-list");
 const coverInput = document.getElementById("cover");
 const searchInput = document.getElementById("search-input");
+const totalBooks = document.getElementById("total-books");
+const readingBooks = document.getElementById("reading-books");
+const readBooks = document.getElementById("read-books");
 
 let books = JSON.parse(localStorage.getItem("books")) || [];
 
@@ -39,6 +42,18 @@ function displayBooks() {
   toReadList.innerHTML = "";
   readingList.innerHTML = "";
   readList.innerHTML = "";
+  totalBooks.textContent = `📚 ${books.length} livres`;
+
+const readingCount = books.filter(
+  (book) => book.status === "reading"
+).length;
+
+const readCount = books.filter(
+  (book) => book.status === "read"
+).length;
+
+readingBooks.textContent = `📖 ${readingCount} en cours`;
+readBooks.textContent = `✅ ${readCount} lus`;
 
  const searchValue = searchInput.value.toLowerCase();
 
