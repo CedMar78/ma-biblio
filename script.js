@@ -12,6 +12,8 @@ const searchInput = document.getElementById("search-input");
 const totalBooks = document.getElementById("total-books");
 const readingBooks = document.getElementById("reading-books");
 const readBooks = document.getElementById("read-books");
+const themeToggle = document.getElementById("theme-toggle");
+
 
 let books = JSON.parse(localStorage.getItem("books")) || [];
 
@@ -168,4 +170,14 @@ function saveBooks() {
 }
 searchInput.addEventListener("input", function () {
   displayBooks();
+});
+
+themeToggle.addEventListener("click", function () {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    themeToggle.textContent = "☀️ Mode clair";
+  } else {
+    themeToggle.textContent = "🌙 Mode sombre";
+  }
 });
